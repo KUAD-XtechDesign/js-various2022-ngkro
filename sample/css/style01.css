@@ -6,9 +6,7 @@ html,body,#contents,.wrapper,#back{
   position: relative;
 }
 
-.wrapper{
-  
-}
+
 
 li{
   list-style: none;
@@ -69,7 +67,7 @@ header ul li{
   top: 0%;
 }
 
-#person{
+#space04_moon{
   position: absolute;
   top:200px;
   right: -100px;
@@ -77,7 +75,7 @@ header ul li{
   transition: 0.6s all;
 }
 
-#person.anime{
+#space04_moonAnime{
   right: 10px;
 }
 
