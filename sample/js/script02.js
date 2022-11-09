@@ -66,6 +66,26 @@ for (var i = 0; i < link.length; i++) {
     $("html, body").animate({scrollTop:separate*2}, 1000, "swing");
   })
 
-
+  function scrollChk(){
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height()-50;
+  
+      $('.scroll-animation').not('.active').each(function(){
+          var pos = $(this).offset().top;
+  
+          if (scroll > pos - windowHeight){
+              $(this).addClass("active");
+          }
+      });
+  }
+  $(window).scroll(function (){
+      scrollChk();
+  });
+  $('body').on('touchmove', function() {
+      scrollChk();
+  });
+  
+  
+  Resources
 
 })
