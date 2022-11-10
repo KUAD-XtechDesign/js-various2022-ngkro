@@ -33,6 +33,25 @@ $(function(){
 
   })
 
+  // カーソル用のdivタグを取得してcursorに格納
+var cursor = document.getElementById('cursor'); 
+
+// カーソル用のdivタグをマウスに追従させる
+document.addEventListener('mousemove', function (e) {
+    cursor.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+});
+
+// リンクにホバーした時にクラス追加、離れたらクラス削除
+var link = document.querySelectorAll('a');
+for (var i = 0; i < link.length; i++) {
+    link[i].addEventListener('mouseover', function (e) {
+        cursor.classList.add('cursor--hover');
+    });
+    link[i].addEventListener('mouseout', function (e) {
+        cursor.classList.remove('cursor--hover');   
+    });
+}
+
 
   //Menuボタンを押した時
   $("#btn01").on("click",function(){
@@ -47,6 +66,26 @@ $(function(){
     $("html, body").animate({scrollTop:separate*2}, 1000, "swing");
   })
 
-
+  function scrollChk(){
+    var scroll = $(window).scrollTop();
+    var windowHeight = $(window).height()-50;
+  
+      $('.scroll-animation').not('.active').each(function(){
+          var pos = $(this).offset().top;
+  
+          if (scroll > pos - windowHeight){
+              $(this).addClass("active");
+          }
+      });
+  }
+  $(window).scroll(function (){
+      scrollChk();
+  });
+  $('body').on('touchmove', function() {
+      scrollChk();
+  });
+  
+  
+  Resources
 
 })
